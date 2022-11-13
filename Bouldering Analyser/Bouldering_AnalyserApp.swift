@@ -4,7 +4,7 @@ import SwiftUI
 struct Bouldering_AnalyserApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
     }
 }

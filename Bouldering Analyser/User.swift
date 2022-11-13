@@ -14,8 +14,11 @@ extension User {
         // authentication testing
         let valid: Bool = (email == "test@test.com" && password == "test")
         if valid {
-            changeEmail(email: email)
-            changePassword(password: password)
+            self.email = email
+            self.password = password
+            self.biometrics = true
+            self.height = 160
+            self.weight = 60
         }
         return valid
     }
@@ -25,11 +28,15 @@ extension User {
     }
     
     func changeEmail(email: String) -> Void {
+        // backend
         self.email = email
+        print("\(self.email)")
     }
     
     func changePassword(password: String) -> Void {
+        // backend
         self.password = password
+        print("\(self.password)")
     }
     
     func logOut() -> Void {
@@ -48,6 +55,23 @@ extension User {
         return self.weight
     }
     
+    func resetBiometrics() -> Void {
+        // backend
+        self.biometrics = false
+        self.height = 0
+        self.weight = 0
+        print("\(self.height)")
+        print("\(self.weight)")
+    }
+    
+    func changeBiometrics(height: Int, weight: Int) -> Void {
+        // backend
+        self.height = height
+        self.weight = weight
+        print("\(self.height)")
+        print("\(self.weight)")
+    }
+    
     func registerUser(email: String, password: String) -> Void {
         // backend
         print("\(email)")
@@ -60,5 +84,9 @@ extension User {
         print("\(password)")
         print("\(height)")
         print("\(weight)")
+    }
+    
+    func usingBiometrics() -> Bool {
+        return self.biometrics
     }
 }

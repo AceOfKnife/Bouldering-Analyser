@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct LoginView: View {
     @StateObject var user = User()
     @State private var email = ""
     @State private var password = ""
@@ -35,14 +35,14 @@ struct ContentView: View {
                         Spacer()
                         Text("OR").padding([.top], 50)
                         Spacer()
-                        Rectangle().frame(minWidth: 0, idealWidth: 180, maxWidth: 180, minHeight: 1, maxHeight: 1).ignoresSafeArea().padding([.top], 50)
+                        Rectangle().frame(minWidth: 0, idealWidth: 150, maxWidth: 150, minHeight: 1, maxHeight: 1).ignoresSafeArea().padding([.top], 50)
                     } .padding([.bottom], 50)
                     Button("Create an account") {
                         signUp = true
                     }.foregroundColor(.black).frame(minWidth: 0, idealWidth: 180, maxWidth:180, minHeight: 0, idealHeight: 40, maxHeight:40).background(Color.green.opacity(0.3)).cornerRadius(10)
                 }
-                NavigationLink("", destination: Home(), isActive: $success)
-                NavigationLink("", destination: Register(), isActive: $signUp)
+                NavigationLink("", destination: HomeView(), isActive: $success)
+                NavigationLink("", destination: RegisterView(), isActive: $signUp)
             }
         }
         .navigationBarTitle("")
@@ -59,8 +59,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LoginView()
     }
 }

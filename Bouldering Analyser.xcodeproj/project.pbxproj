@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF08961F2914B3BF007E07BB /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08961E2914B3BF007E07BB /* Home.swift */; };
-		BF7AB05A291C27EB000F01E3 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AB059291C27EB000F01E3 /* Register.swift */; };
-		BF874B822921539B006B47E5 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF874B812921539B006B47E5 /* Feedback.swift */; };
+		BF08961F2914B3BF007E07BB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08961E2914B3BF007E07BB /* HomeView.swift */; };
+		BF34EFB7292165CB00258778 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34EFB6292165CB00258778 /* FeedbackModel.swift */; };
+		BF34EFB92921721C00258778 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34EFB82921721C00258778 /* SettingsView.swift */; };
+		BF34EFBB29219A2700258778 /* SavedRoutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34EFBA29219A2700258778 /* SavedRoutesView.swift */; };
+		BF34EFBD29219ADC00258778 /* HoldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34EFBC29219ADC00258778 /* HoldsView.swift */; };
+		BF7AB05A291C27EB000F01E3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AB059291C27EB000F01E3 /* RegisterView.swift */; };
+		BF874B822921539B006B47E5 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF874B812921539B006B47E5 /* FeedbackView.swift */; };
 		BFAD574C291494C200D6A306 /* Bouldering_AnalyserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD574B291494C200D6A306 /* Bouldering_AnalyserApp.swift */; };
 		BFAD5750291494C300D6A306 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFAD574F291494C300D6A306 /* Assets.xcassets */; };
 		BFAD5753291494C300D6A306 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFAD5752291494C300D6A306 /* Preview Assets.xcassets */; };
 		BFAD575D291494C300D6A306 /* Bouldering_AnalyserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD575C291494C300D6A306 /* Bouldering_AnalyserTests.swift */; };
 		BFAD5767291494C300D6A306 /* Bouldering_AnalyserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5766291494C300D6A306 /* Bouldering_AnalyserUITests.swift */; };
 		BFAD5769291494C300D6A306 /* Bouldering_AnalyserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5768291494C300D6A306 /* Bouldering_AnalyserUITestsLaunchTests.swift */; };
-		BFAD5776291495B000D6A306 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5775291495B000D6A306 /* ContentView.swift */; };
+		BFAD5776291495B000D6A306 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5775291495B000D6A306 /* LoginView.swift */; };
 		BFAD57782914985100D6A306 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD57772914985100D6A306 /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,9 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BF08961E2914B3BF007E07BB /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		BF7AB059291C27EB000F01E3 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
-		BF874B812921539B006B47E5 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		BF08961E2914B3BF007E07BB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BF34EFB6292165CB00258778 /* FeedbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
+		BF34EFB82921721C00258778 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BF34EFBA29219A2700258778 /* SavedRoutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRoutesView.swift; sourceTree = "<group>"; };
+		BF34EFBC29219ADC00258778 /* HoldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsView.swift; sourceTree = "<group>"; };
+		BF7AB059291C27EB000F01E3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		BF874B812921539B006B47E5 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		BFAD5748291494C200D6A306 /* Bouldering Analyser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bouldering Analyser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFAD574B291494C200D6A306 /* Bouldering_AnalyserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bouldering_AnalyserApp.swift; sourceTree = "<group>"; };
 		BFAD574F291494C300D6A306 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,7 +58,7 @@
 		BFAD5762291494C300D6A306 /* Bouldering AnalyserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bouldering AnalyserUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFAD5766291494C300D6A306 /* Bouldering_AnalyserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bouldering_AnalyserUITests.swift; sourceTree = "<group>"; };
 		BFAD5768291494C300D6A306 /* Bouldering_AnalyserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bouldering_AnalyserUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		BFAD5775291495B000D6A306 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BFAD5775291495B000D6A306 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BFAD57772914985100D6A306 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,11 +111,15 @@
 			isa = PBXGroup;
 			children = (
 				BFAD574B291494C200D6A306 /* Bouldering_AnalyserApp.swift */,
-				BFAD5775291495B000D6A306 /* ContentView.swift */,
-				BF7AB059291C27EB000F01E3 /* Register.swift */,
-				BF08961E2914B3BF007E07BB /* Home.swift */,
+				BFAD5775291495B000D6A306 /* LoginView.swift */,
+				BF7AB059291C27EB000F01E3 /* RegisterView.swift */,
+				BF08961E2914B3BF007E07BB /* HomeView.swift */,
+				BF34EFBA29219A2700258778 /* SavedRoutesView.swift */,
+				BF34EFBC29219ADC00258778 /* HoldsView.swift */,
+				BF34EFB82921721C00258778 /* SettingsView.swift */,
 				BFAD57772914985100D6A306 /* User.swift */,
-				BF874B812921539B006B47E5 /* Feedback.swift */,
+				BF874B812921539B006B47E5 /* FeedbackView.swift */,
+				BF34EFB6292165CB00258778 /* FeedbackModel.swift */,
 				BFAD574F291494C300D6A306 /* Assets.xcassets */,
 				BFAD5751291494C300D6A306 /* Preview Content */,
 			);
@@ -271,10 +283,14 @@
 			files = (
 				BFAD57782914985100D6A306 /* User.swift in Sources */,
 				BFAD574C291494C200D6A306 /* Bouldering_AnalyserApp.swift in Sources */,
-				BF874B822921539B006B47E5 /* Feedback.swift in Sources */,
-				BF08961F2914B3BF007E07BB /* Home.swift in Sources */,
-				BFAD5776291495B000D6A306 /* ContentView.swift in Sources */,
-				BF7AB05A291C27EB000F01E3 /* Register.swift in Sources */,
+				BF34EFB92921721C00258778 /* SettingsView.swift in Sources */,
+				BF34EFB7292165CB00258778 /* FeedbackModel.swift in Sources */,
+				BF874B822921539B006B47E5 /* FeedbackView.swift in Sources */,
+				BF34EFBB29219A2700258778 /* SavedRoutesView.swift in Sources */,
+				BF08961F2914B3BF007E07BB /* HomeView.swift in Sources */,
+				BFAD5776291495B000D6A306 /* LoginView.swift in Sources */,
+				BF7AB05A291C27EB000F01E3 /* RegisterView.swift in Sources */,
+				BF34EFBD29219ADC00258778 /* HoldsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

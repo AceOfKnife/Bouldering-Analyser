@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Register: View {
+struct RegisterView: View {
     @EnvironmentObject var user: User
     @State private var email = ""
     @State private var password = ""
@@ -107,20 +107,20 @@ struct Register: View {
                     } .padding(.bottom, 20)
                     if biometrics {
                         HStack {
-                            Text("Height")
+                            Text("Height").frame(width:55).minimumScaleFactor(0.01)
                             Spacer()
                             TextField("Height in cm", value: $height, formatter: formatter)
                                 .frame(minWidth: 0, idealWidth:150, maxWidth: 150, minHeight: 0, idealHeight: 50, maxHeight:50).disableAutocorrection(true).autocapitalization(.none)
                             Spacer()
-                            Text("cm")
+                            Text("cm").frame(width:25).minimumScaleFactor(0.01)
                         }
                         HStack {
-                            Text("Weight")
+                            Text("Weight").frame(width:55).minimumScaleFactor(0.01)
                             Spacer()
                             TextField("Weight in kg", value: $weight, formatter: formatter)
                                 .frame(minWidth: 0, idealWidth:150, maxWidth: 150, minHeight: 0, idealHeight: 50, maxHeight:50).disableAutocorrection(true).autocapitalization(.none)
                             Spacer()
-                            Text("kg")
+                            Text("kg").frame(width:25).minimumScaleFactor(0.01)
                         }
                     }
                     Toggle("I have read the terms and conditions", isOn: $tc).onChange(of:tc) { newValue in
@@ -152,8 +152,8 @@ struct Register: View {
 }
 
 
-struct Register_Previews: PreviewProvider {
+struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        Register()
+        RegisterView()
     }
 }
