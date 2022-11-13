@@ -1,10 +1,3 @@
-//
-//  Bouldering_AnalyserTests.swift
-//  Bouldering AnalyserTests
-//
-//  Created by Vincent Nguyen on 04/11/2022.
-//
-
 import XCTest
 @testable import Bouldering_Analyser
 

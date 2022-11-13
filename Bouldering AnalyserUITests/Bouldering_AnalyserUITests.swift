@@ -1,10 +1,3 @@
-//
-//  Bouldering_AnalyserUITests.swift
-//  Bouldering AnalyserUITests
-//
-//  Created by Vincent Nguyen on 04/11/2022.
-//
-
 import XCTest
 
 final class Bouldering_AnalyserUITests: XCTestCase {
