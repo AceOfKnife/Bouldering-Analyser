@@ -47,6 +47,7 @@
 		BF34EFB82921721C00258778 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		BF34EFBA29219A2700258778 /* SavedRoutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRoutesView.swift; sourceTree = "<group>"; };
 		BF34EFBC29219ADC00258778 /* HoldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsView.swift; sourceTree = "<group>"; };
+		BF35B833295B97B1008D0310 /* Bouldering-Analyser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bouldering-Analyser-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BF7AB059291C27EB000F01E3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		BF874B812921539B006B47E5 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		BFAD5748291494C200D6A306 /* Bouldering Analyser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bouldering Analyser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +111,7 @@
 		BFAD574A291494C200D6A306 /* Bouldering Analyser */ = {
 			isa = PBXGroup;
 			children = (
+				BF35B833295B97B1008D0310 /* Bouldering-Analyser-Info.plist */,
 				BFAD574B291494C200D6A306 /* Bouldering_AnalyserApp.swift */,
 				BFAD5775291495B000D6A306 /* LoginView.swift */,
 				BF7AB059291C27EB000F01E3 /* RegisterView.swift */,
@@ -449,9 +451,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bouldering Analyser/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "Bouldering-Analyser-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -477,9 +480,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bouldering Analyser/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = "Bouldering-Analyser-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
