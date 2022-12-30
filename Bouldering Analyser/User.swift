@@ -1,92 +1,46 @@
 import SwiftUI
+import FirebaseDatabase
+import FirebaseDatabaseSwift
+import FirebaseAuth
+import FirebaseAuthCombineSwift
 
 class User: ObservableObject {
-    private var email = ""
-    private var password = ""
-    private var biometrics = false
-    private var height = 0
-    private var weight = 0
+    public var user = Auth.auth().currentUser
+    private var ref = Database.database().reference()
+    init() {
+        let handle = Auth.auth().addStateDidChangeListener { auth, newUser in
+            self.user = newUser
+        }
+    }
 }
 
 extension User {
     
-    func authenticate(email: String, password: String) -> Bool {
-        // authentication testing
-        let valid: Bool = (email == "test@test.com" && password == "test")
-        if valid {
-            self.email = email
-            self.password = password
-            self.biometrics = true
-            self.height = 160
-            self.weight = 60
-        }
-        return valid
-    }
-    
-    func getEmail() -> String {
-        return self.email
-    }
-    
-    func changeEmail(email: String) -> Void {
-        // backend
-        self.email = email
-        print("\(self.email)")
-    }
-    
-    func changePassword(password: String) -> Void {
-        // backend
-        self.password = password
-        print("\(self.password)")
+    func updateUser(user: FirebaseAuth.User) {
+        self.user = user
     }
     
     func logOut() -> Void {
-        self.email = ""
-        self.password = ""
-        self.biometrics = false
-        self.height = 0
-        self.weight = 0
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
     }
-    
-    func getHeight() -> Int {
-        return self.height
+
+    func changeBiometrics() -> Void {
+        self.ref.child("users/\(user!.uid)/biometrics").setValue(false)
+        self.ref.child("users/\(user!.uid)/height").setValue(nil)
+        self.ref.child("users/\(user!.uid)/weight").setValue(nil)
     }
-    
-    func getWeight() -> Int {
-        return self.weight
-    }
-    
-    func resetBiometrics() -> Void {
-        // backend
-        self.biometrics = false
-        self.height = 0
-        self.weight = 0
-        print("\(self.height)")
-        print("\(self.weight)")
-    }
-    
+
     func changeBiometrics(height: Int, weight: Int) -> Void {
-        // backend
-        self.height = height
-        self.weight = weight
-        print("\(self.height)")
-        print("\(self.weight)")
+        self.ref.child("users/\(user!.uid)/biometrics").setValue(true)
+        self.ref.child("users/\(user!.uid)/height").setValue(height)
+        self.ref.child("users/\(user!.uid)/weight").setValue(weight)
     }
     
-    func registerUser(email: String, password: String) -> Void {
-        // backend
-        print("\(email)")
-        print("\(password)")
-    }
-    
-    func registerUser(email: String, password: String, height: Int, weight: Int) {
-        // backend
-        print("\(email)")
-        print("\(password)")
-        print("\(height)")
-        print("\(weight)")
-    }
-    
-    func usingBiometrics() -> Bool {
-        return self.biometrics
+    func sendFeedback(feedback: String) {
+        ref.child("feedback/\(user!.uid)").childByAutoId().setValue(feedback)
     }
 }

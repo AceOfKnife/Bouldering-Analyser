@@ -1,7 +1,8 @@
 import SwiftUI
+import FirebaseAuth
+import FirebaseDatabase
 
 struct SettingsView: View {
-    @EnvironmentObject var user: User
     @State private var email = ""
     @State private var confirmEmail = ""
     @State private var password = ""
@@ -11,6 +12,8 @@ struct SettingsView: View {
     @State private var biometrics = false
     @State private var errorMessage = ""
     @State private var success = ""
+    @EnvironmentObject var user: User
+    let ref = Database.database().reference()
         
     func validateEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -94,9 +97,15 @@ struct SettingsView: View {
                             let errorCode = emailError()
                             errorMessage = errorMessage(errorCode: errorCode)
                         } else {
-                            user.changeEmail(email: email)
-                            errorMessage = ""
-                            success = "Successfully updated!"
+                            success = ""
+                            user.user?.updateEmail(to: email) { error in
+                                if error != nil {
+                                    errorMessage = error!.localizedDescription
+                                } else {
+                                    ref.child("users/\(user.user!.uid)/email").setValue(email)
+                                    success = "Successfully updated!"
+                                }
+                            }
                         }
                     }.foregroundColor(.black).frame(minWidth: 0, idealWidth: 180, maxWidth:180, minHeight: 0, idealHeight: 40, maxHeight:40).background(Color.blue.opacity(0.3)).cornerRadius(10).padding()
                 }
@@ -112,9 +121,14 @@ struct SettingsView: View {
                         let errorCode = passwordError()
                         errorMessage = errorMessage(errorCode: errorCode)
                     } else {
-                        user.changePassword(password: password)
-                        errorMessage = ""
-                        success = "Successfully updated!"
+                        success = ""
+                        user.user?.updatePassword(to: password) { error in
+                            if error != nil {
+                                errorMessage = error!.localizedDescription
+                            } else {
+                                success = "Successfully updated!"
+                            }
+                        }
                     }
                 }.foregroundColor(.black).frame(minWidth: 0, idealWidth: 180, maxWidth:180, minHeight: 0, idealHeight: 40, maxHeight:40).background(Color.blue.opacity(0.3)).cornerRadius(10).padding()
                 Text("Would you like to provide your height and weight for more personalised advice?").multilineTextAlignment(.center).padding()
@@ -158,7 +172,7 @@ struct SettingsView: View {
                         if biometrics {
                             user.changeBiometrics(height: height, weight: weight)
                         } else {
-                            user.resetBiometrics()
+                            user.changeBiometrics()
                         }
                         errorMessage = ""
                         success = "Successfully updated!"

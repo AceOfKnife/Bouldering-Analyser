@@ -1,7 +1,7 @@
 import SwiftUI
+import FirebaseAuth
 
 struct LoginView: View {
-    @StateObject var user = User()
     @State private var email = ""
     @State private var password = ""
     @State private var success = false
@@ -28,7 +28,15 @@ struct LoginView: View {
                         // backend
                     }.frame(minWidth: 0, idealWidth: 200, maxWidth: 200, minHeight: 0, idealHeight: 30, maxHeight:30).padding([.bottom], 20)
                     Button("Sign In") {
-                        signIn(email: email, password: password)
+                        Auth.auth().signIn(withEmail: email, password: password) { auth, error in
+                            if error == nil {
+                                fail = false
+                                success = true
+                            } else {
+                                success = false
+                                fail = true
+                            }
+                        }
                     } .foregroundColor(.black).frame(minWidth: 0, idealWidth: 150, maxWidth:150, minHeight: 0, idealHeight: 40, maxHeight:40).background(Color.blue.opacity(0.3)).cornerRadius(10)
                     HStack {
                         Rectangle().frame(minWidth: 0, idealWidth: 150, maxWidth: 150, minHeight: 1, maxHeight: 1).ignoresSafeArea().padding([.top], 50)
@@ -48,14 +56,7 @@ struct LoginView: View {
         .navigationBarTitle("")
         .navigationBarHidden(true)
         .padding()
-        .environmentObject(user)
         .textFieldStyle(.roundedBorder)
-    }
-    
-    func signIn(email: String, password: String) {
-        let result: Bool = user.authenticate(email: email, password: password)
-        success = result
-        fail = !result
     }
 }
 

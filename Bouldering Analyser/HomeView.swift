@@ -1,12 +1,13 @@
 import SwiftUI
+import FirebaseAuth
 
 struct HomeView: View {
-    @EnvironmentObject var user: User
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var menu = false
     @State private var camera = false
     @State private var upload = false
-    
+    @State private var user = User()
+
     var body: some View {
             NavigationView {
                 VStack {
@@ -26,8 +27,8 @@ struct HomeView: View {
                             Text("Settings")
                                 .background( NavigationLink("", destination: SettingsView()).opacity(0) )
                             Button(action: {
-                                self.presentationMode.wrappedValue.dismiss()
                                 user.logOut()
+                                self.presentationMode.wrappedValue.dismiss()
                             }) {
                                 Text("Logout").foregroundColor(.black)
                             }
@@ -69,6 +70,7 @@ struct HomeView: View {
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
+            .environmentObject(user)
         }
 }
 
