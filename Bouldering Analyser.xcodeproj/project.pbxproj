@@ -11,6 +11,8 @@
 		BF34EFB92921721C00258778 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34EFB82921721C00258778 /* SettingsView.swift */; };
 		BF34EFBB29219A2700258778 /* SavedRoutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34EFBA29219A2700258778 /* SavedRoutesView.swift */; };
 		BF34EFBD29219ADC00258778 /* HoldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34EFBC29219ADC00258778 /* HoldsView.swift */; };
+		BF4BFDC229678815003AA064 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4BFDC129678815003AA064 /* ImagePickerView.swift */; };
+		BF4BFDC429678D5B003AA064 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4BFDC329678D5B003AA064 /* UploadView.swift */; };
 		BF7AB05A291C27EB000F01E3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AB059291C27EB000F01E3 /* RegisterView.swift */; };
 		BF874B822921539B006B47E5 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF874B812921539B006B47E5 /* FeedbackView.swift */; };
 		BF965233295F9E8D00C79932 /* SubmittedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF965232295F9E8D00C79932 /* SubmittedView.swift */; };
@@ -57,6 +59,8 @@
 		BF34EFBA29219A2700258778 /* SavedRoutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedRoutesView.swift; sourceTree = "<group>"; };
 		BF34EFBC29219ADC00258778 /* HoldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldsView.swift; sourceTree = "<group>"; };
 		BF35B833295B97B1008D0310 /* Bouldering-Analyser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bouldering-Analyser-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BF4BFDC129678815003AA064 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		BF4BFDC329678D5B003AA064 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		BF7AB059291C27EB000F01E3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		BF874B812921539B006B47E5 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		BF965232295F9E8D00C79932 /* SubmittedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedView.swift; sourceTree = "<group>"; };
@@ -134,9 +138,11 @@
 				BFB77E13295B9E1E0060CB42 /* GoogleService-Info.plist */,
 				BF35B833295B97B1008D0310 /* Bouldering-Analyser-Info.plist */,
 				BFAD574B291494C200D6A306 /* Bouldering_AnalyserApp.swift */,
+				BF4BFDC129678815003AA064 /* ImagePickerView.swift */,
 				BFAD5775291495B000D6A306 /* LoginView.swift */,
 				BF7AB059291C27EB000F01E3 /* RegisterView.swift */,
 				BF08961E2914B3BF007E07BB /* HomeView.swift */,
+				BF4BFDC329678D5B003AA064 /* UploadView.swift */,
 				BFB77E5D295E57800060CB42 /* SuccessRegisterView.swift */,
 				BF965232295F9E8D00C79932 /* SubmittedView.swift */,
 				BF34EFBA29219A2700258778 /* SavedRoutesView.swift */,
@@ -323,11 +329,13 @@
 				BFAD574C291494C200D6A306 /* Bouldering_AnalyserApp.swift in Sources */,
 				BF34EFB92921721C00258778 /* SettingsView.swift in Sources */,
 				BF874B822921539B006B47E5 /* FeedbackView.swift in Sources */,
+				BF4BFDC229678815003AA064 /* ImagePickerView.swift in Sources */,
 				BF34EFBB29219A2700258778 /* SavedRoutesView.swift in Sources */,
 				BF08961F2914B3BF007E07BB /* HomeView.swift in Sources */,
 				BFAD5776291495B000D6A306 /* LoginView.swift in Sources */,
 				BFB77E5E295E57800060CB42 /* SuccessRegisterView.swift in Sources */,
 				BF965233295F9E8D00C79932 /* SubmittedView.swift in Sources */,
+				BF4BFDC429678D5B003AA064 /* UploadView.swift in Sources */,
 				BF7AB05A291C27EB000F01E3 /* RegisterView.swift in Sources */,
 				BF34EFBD29219ADC00258778 /* HoldsView.swift in Sources */,
 			);

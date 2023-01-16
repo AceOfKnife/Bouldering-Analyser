@@ -24,7 +24,7 @@ struct RegisterView: View {
                 let message = error.localizedDescription
                 errorMessage = message
             } else {
-                self.ref.child("users").child(authResult!.user.uid).setValue(["email": authResult!.user.email, "biometrics": false]) { error,_  in
+                self.ref.child("users").child(authResult!.user.uid).setValue(["email": self.email, "biometrics": false]) { error,_  in
                     if let error = error {
                         let message = error.localizedDescription
                         errorMessage = message
@@ -42,7 +42,7 @@ struct RegisterView: View {
                 let message = error.localizedDescription
                 errorMessage = message
             } else {
-                self.ref.child("users").child(authResult!.user.uid).setValue(["email": authResult!.user.email, "biometrics": true, "height": height, "weight": weight]) { error,_  in
+                self.ref.child("users").child(authResult!.user.uid).setValue(["email": self.email, "biometrics": true, "height": height, "weight": weight]) { error,_  in
                     if let error = error {
                         let message = error.localizedDescription
                         errorMessage = message

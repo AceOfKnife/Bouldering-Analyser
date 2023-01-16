@@ -8,17 +8,13 @@ class User: ObservableObject {
     public var user = Auth.auth().currentUser
     private var ref = Database.database().reference()
     init() {
-        let handle = Auth.auth().addStateDidChangeListener { auth, newUser in
+        Auth.auth().addStateDidChangeListener { auth, newUser in
             self.user = newUser
         }
     }
 }
 
 extension User {
-    
-    func updateUser(user: FirebaseAuth.User) {
-        self.user = user
-    }
     
     func logOut() -> Void {
         do {
