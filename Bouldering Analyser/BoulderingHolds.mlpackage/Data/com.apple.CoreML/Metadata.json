@@ -1,0 +1,10 @@
+{
+  "MLModelCreatorDefinedKey" : {
+    "com.apple.createml.app.tag" : "99.2",
+    "com.apple.createml.version" : "13.1.0",
+    "com.apple.coreml.model.preview.type" : "objectDetector",
+    "iterations" : "4000",
+    "com.apple.createml.app.version" : "4.0"
+  },
+  "MLModelAuthorKey" : "Vincent Nguyen"
+}

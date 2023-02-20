@@ -46,12 +46,12 @@ struct HomeView: View {
                     Text("Route Analysis").font(.largeTitle).bold().padding()
                     Text("How to use the app:").padding()
                     Text("1. Take a photo or upload an image of the desired route").multilineTextAlignment(.center)
-                    Text("2. Select the starting and ending holds of the route").multilineTextAlignment(.center)
-                    Text("3. Select the rest of the holds on the route").multilineTextAlignment(.center)
-                    Text("4. Receive automatic grading and tips on how to climb the route!").multilineTextAlignment(.center)
+                    Text("2. Select the holds of the route").multilineTextAlignment(.center)
+                    Text("3. Receive automatic grading and tips on how to climb the route!").multilineTextAlignment(.center)
                     Button {
                         self.sourceType = .camera
                         self.displayImagePicker.toggle()
+                        self.uploading = false
                     } label: {
                         VStack {
                             Image("camera").resizable().scaledToFit().frame(maxWidth:100, maxHeight:100)
@@ -68,6 +68,7 @@ struct HomeView: View {
                     Button {
                         self.sourceType = .photoLibrary
                         self.displayImagePicker.toggle()
+                        self.uploading = false
                     } label: {
                         VStack {
                             Image("upload").resizable().scaledToFit().frame(maxWidth:100, maxHeight:100)
@@ -77,18 +78,20 @@ struct HomeView: View {
                     Group {
                         if selectedImage != nil {
                             VStack{
-                                Image(uiImage: selectedImage!).resizable().scaledToFit().frame(maxWidth:200, maxHeight:200)
+                                Image(uiImage: selectedImage!).resizable().scaledToFit()
                                 Button("Confirm image") {
-                                    self.uploading = true
-                                    let uploadRef = self.storageRef.child("images").child(user.user!.uid).child("analysing.png")
-                                    let uploadTask = uploadRef.putData(selectedImage!.pngData()!, metadata: nil)
-                                    uploadTask.observe(.progress) { snapshot in
-                                      let percentComplete = Double(snapshot.progress!.completedUnitCount)
-                                        / Double(snapshot.progress!.totalUnitCount)
-                                        modifyPercentBar(scale: percentComplete)
-                                    }
-                                    uploadTask.observe(.success) { snapshot in
-                                        uploadComplete()
+                                    if !self.uploading {
+                                        self.uploading = true
+                                        let uploadRef = self.storageRef.child("images").child(user.user!.uid).child("analysing.jpeg")
+                                        let uploadTask = uploadRef.putData(selectedImage!.jpegData(compressionQuality: 1)!, metadata: nil)
+                                        uploadTask.observe(.progress) { snapshot in
+                                          let percentComplete = Double(snapshot.progress!.completedUnitCount)
+                                            / Double(snapshot.progress!.totalUnitCount)
+                                            modifyPercentBar(scale: percentComplete)
+                                        }
+                                        uploadTask.observe(.success) { snapshot in
+                                            uploadComplete()
+                                        }
                                     }
                                 }.foregroundColor(.black).frame(minWidth: 0, idealWidth: 180, maxWidth:180, minHeight: 0, idealHeight: 40, maxHeight:40).background(Color.mint.opacity(0.3)).cornerRadius(10)
                                 if uploading {
@@ -123,6 +126,8 @@ struct HomeView: View {
     
     func uploadComplete() -> Void {
         self.uploadedImage = true
+        self.selectedImage = nil
+        self.progressWidth = 0.0
     }
 }
 

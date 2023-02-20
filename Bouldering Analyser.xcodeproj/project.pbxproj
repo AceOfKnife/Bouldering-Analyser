@@ -16,6 +16,7 @@
 		BF7AB05A291C27EB000F01E3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7AB059291C27EB000F01E3 /* RegisterView.swift */; };
 		BF874B822921539B006B47E5 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF874B812921539B006B47E5 /* FeedbackView.swift */; };
 		BF965233295F9E8D00C79932 /* SubmittedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF965232295F9E8D00C79932 /* SubmittedView.swift */; };
+		BF9CFD79299ED684009A7B79 /* GradeClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9CFD78299ED684009A7B79 /* GradeClassifier.swift */; };
 		BFAD574C291494C200D6A306 /* Bouldering_AnalyserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD574B291494C200D6A306 /* Bouldering_AnalyserApp.swift */; };
 		BFAD5750291494C300D6A306 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFAD574F291494C300D6A306 /* Assets.xcassets */; };
 		BFAD5753291494C300D6A306 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFAD5752291494C300D6A306 /* Preview Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		BFAD5769291494C300D6A306 /* Bouldering_AnalyserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5768291494C300D6A306 /* Bouldering_AnalyserUITestsLaunchTests.swift */; };
 		BFAD5776291495B000D6A306 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD5775291495B000D6A306 /* LoginView.swift */; };
 		BFAD57782914985100D6A306 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAD57772914985100D6A306 /* User.swift */; };
+		BFB39B0E29A3F9200056BF99 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB39B0D29A3F9200056BF99 /* DotView.swift */; };
 		BFB77E14295B9E1E0060CB42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFB77E13295B9E1E0060CB42 /* GoogleService-Info.plist */; };
 		BFB77E4E295CAB270060CB42 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BFB77E4D295CAB270060CB42 /* FirebaseAuth */; };
 		BFB77E50295CAB270060CB42 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BFB77E4F295CAB270060CB42 /* FirebaseAuthCombine-Community */; };
@@ -34,6 +36,7 @@
 		BFB77E5A295CAB270060CB42 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BFB77E59295CAB270060CB42 /* FirebaseStorage */; };
 		BFB77E5C295CAB270060CB42 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BFB77E5B295CAB270060CB42 /* FirebaseStorageCombine-Community */; };
 		BFB77E5E295E57800060CB42 /* SuccessRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB77E5D295E57800060CB42 /* SuccessRegisterView.swift */; };
+		BFDA6CF329A136C1007E67EC /* BoulderingHolds.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = BFDA6CF229A136C1007E67EC /* BoulderingHolds.mlpackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,7 @@
 		BF7AB059291C27EB000F01E3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		BF874B812921539B006B47E5 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		BF965232295F9E8D00C79932 /* SubmittedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmittedView.swift; sourceTree = "<group>"; };
+		BF9CFD78299ED684009A7B79 /* GradeClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeClassifier.swift; sourceTree = "<group>"; };
 		BFAD5748291494C200D6A306 /* Bouldering Analyser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bouldering Analyser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFAD574B291494C200D6A306 /* Bouldering_AnalyserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bouldering_AnalyserApp.swift; sourceTree = "<group>"; };
 		BFAD574F291494C300D6A306 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,8 +79,10 @@
 		BFAD5768291494C300D6A306 /* Bouldering_AnalyserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bouldering_AnalyserUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BFAD5775291495B000D6A306 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BFAD57772914985100D6A306 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BFB39B0D29A3F9200056BF99 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		BFB77E13295B9E1E0060CB42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFB77E5D295E57800060CB42 /* SuccessRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessRegisterView.swift; sourceTree = "<group>"; };
+		BFDA6CF229A136C1007E67EC /* BoulderingHolds.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = BoulderingHolds.mlpackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,7 @@
 		BFAD574A291494C200D6A306 /* Bouldering Analyser */ = {
 			isa = PBXGroup;
 			children = (
+				BFDA6CF229A136C1007E67EC /* BoulderingHolds.mlpackage */,
 				BFB77E13295B9E1E0060CB42 /* GoogleService-Info.plist */,
 				BF35B833295B97B1008D0310 /* Bouldering-Analyser-Info.plist */,
 				BFAD574B291494C200D6A306 /* Bouldering_AnalyserApp.swift */,
@@ -146,7 +153,9 @@
 				BFB77E5D295E57800060CB42 /* SuccessRegisterView.swift */,
 				BF965232295F9E8D00C79932 /* SubmittedView.swift */,
 				BF34EFBA29219A2700258778 /* SavedRoutesView.swift */,
+				BF9CFD78299ED684009A7B79 /* GradeClassifier.swift */,
 				BF34EFBC29219ADC00258778 /* HoldsView.swift */,
+				BFB39B0D29A3F9200056BF99 /* DotView.swift */,
 				BF34EFB82921721C00258778 /* SettingsView.swift */,
 				BFAD57772914985100D6A306 /* User.swift */,
 				BF874B812921539B006B47E5 /* FeedbackView.swift */,
@@ -326,13 +335,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFAD57782914985100D6A306 /* User.swift in Sources */,
+				BFDA6CF329A136C1007E67EC /* BoulderingHolds.mlpackage in Sources */,
 				BFAD574C291494C200D6A306 /* Bouldering_AnalyserApp.swift in Sources */,
 				BF34EFB92921721C00258778 /* SettingsView.swift in Sources */,
 				BF874B822921539B006B47E5 /* FeedbackView.swift in Sources */,
 				BF4BFDC229678815003AA064 /* ImagePickerView.swift in Sources */,
 				BF34EFBB29219A2700258778 /* SavedRoutesView.swift in Sources */,
+				BF9CFD79299ED684009A7B79 /* GradeClassifier.swift in Sources */,
 				BF08961F2914B3BF007E07BB /* HomeView.swift in Sources */,
 				BFAD5776291495B000D6A306 /* LoginView.swift in Sources */,
+				BFB39B0E29A3F9200056BF99 /* DotView.swift in Sources */,
 				BFB77E5E295E57800060CB42 /* SuccessRegisterView.swift in Sources */,
 				BF965233295F9E8D00C79932 /* SubmittedView.swift in Sources */,
 				BF4BFDC429678D5B003AA064 /* UploadView.swift in Sources */,
