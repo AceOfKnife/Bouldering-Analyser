@@ -82,8 +82,10 @@ struct HomeView: View {
                                 Button("Confirm image") {
                                     if !self.uploading {
                                         self.uploading = true
-                                        let uploadRef = self.storageRef.child("images").child(user.user!.uid).child("analysing.jpeg")
-                                        let uploadTask = uploadRef.putData(selectedImage!.jpegData(compressionQuality: 1)!, metadata: nil)
+                                        let metadata = StorageMetadata()
+                                        metadata.contentType = "image/jpeg"
+                                        let uploadRef = self.storageRef.child("images").child(user.user!.uid).child("analysing.jpg")
+                                        let uploadTask = uploadRef.putData(selectedImage!.jpegData(compressionQuality: 1)!, metadata: metadata)
                                         uploadTask.observe(.progress) { snapshot in
                                           let percentComplete = Double(snapshot.progress!.completedUnitCount)
                                             / Double(snapshot.progress!.totalUnitCount)
