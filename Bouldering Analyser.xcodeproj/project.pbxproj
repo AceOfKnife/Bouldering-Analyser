@@ -37,7 +37,6 @@
 		BFB77E5A295CAB270060CB42 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BFB77E59295CAB270060CB42 /* FirebaseStorage */; };
 		BFB77E5C295CAB270060CB42 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BFB77E5B295CAB270060CB42 /* FirebaseStorageCombine-Community */; };
 		BFB77E5E295E57800060CB42 /* SuccessRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB77E5D295E57800060CB42 /* SuccessRegisterView.swift */; };
-		BFDA6CF329A136C1007E67EC /* BoulderingHolds.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = BFDA6CF229A136C1007E67EC /* BoulderingHolds.mlpackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +83,6 @@
 		BFB39B0D29A3F9200056BF99 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		BFB77E13295B9E1E0060CB42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFB77E5D295E57800060CB42 /* SuccessRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessRegisterView.swift; sourceTree = "<group>"; };
-		BFDA6CF229A136C1007E67EC /* BoulderingHolds.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = BoulderingHolds.mlpackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +141,6 @@
 		BFAD574A291494C200D6A306 /* Bouldering Analyser */ = {
 			isa = PBXGroup;
 			children = (
-				BFDA6CF229A136C1007E67EC /* BoulderingHolds.mlpackage */,
 				BFB77E13295B9E1E0060CB42 /* GoogleService-Info.plist */,
 				BF35B833295B97B1008D0310 /* Bouldering-Analyser-Info.plist */,
 				BFAD574B291494C200D6A306 /* Bouldering_AnalyserApp.swift */,
@@ -339,7 +336,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFAD57782914985100D6A306 /* User.swift in Sources */,
-				BFDA6CF329A136C1007E67EC /* BoulderingHolds.mlpackage in Sources */,
 				BFAD574C291494C200D6A306 /* Bouldering_AnalyserApp.swift in Sources */,
 				BF34EFB92921721C00258778 /* SettingsView.swift in Sources */,
 				BF874B822921539B006B47E5 /* FeedbackView.swift in Sources */,
@@ -512,7 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bouldering Analyser/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 78RM7DDPN7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bouldering-Analyser-Info.plist";
@@ -541,7 +537,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bouldering Analyser/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 78RM7DDPN7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bouldering-Analyser-Info.plist";
