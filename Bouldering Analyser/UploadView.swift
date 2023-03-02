@@ -122,8 +122,8 @@ struct UploadView: View {
     }
     
     func processImage() -> Void {
-        let imageRef = storageRef.child("images/\(user.user!.uid)/copy.jpg")
-        imageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+        let imageRef = storageRef.child("images/\(user.user!.uid)/analysing.jpg")
+        imageRef.getData(maxSize: Int64.max) { data, error in
             if let error = error {
                 let _ = print(error)
             } else {
@@ -207,6 +207,7 @@ struct UploadView: View {
         self.holds = try! JSONDecoder().decode([Holds].self, from: jsonData)
         if self.holds.count == 0 {
             self.failedContouring = true
+            self.completed = true
         } else {
             drawBoxes()
             self.completed = true
@@ -305,6 +306,7 @@ struct UploadView: View {
                         DotView(delay: 0.4)
                     }
                     let numLargeHolds = self.gradeClassifier.mapBoxes()
+                    let _ = print(self.gradeClassifier.testMapping())
                     if numLargeHolds > 0 {
                         Text("Detected \(self.gradeClassifier.getNumLargeHolds()) large hold(s). This may cause an inaccurate grade result. Would you like to continue?").multilineTextAlignment(.center)
                         HStack {
@@ -349,6 +351,7 @@ struct UploadView: View {
                                 Spacer()
                                 Button {
                                     yes = true
+                                    self.gradeClassifier.uploadData(correct: true, realGrade: self.realGrade)
                                 } label: {
                                     Image("thumbsup").resizable().scaledToFit().frame(maxWidth:30, maxHeight:30)
                                 }.padding()
@@ -372,7 +375,7 @@ struct UploadView: View {
                                     Spacer()
                                     Button("Submit") {
                                         self.submit = true
-                                        self.gradeClassifier.uploadData(realGrade: self.realGrade)
+                                        self.gradeClassifier.uploadData(correct: false, realGrade: self.realGrade)
                                     }.foregroundColor(.black).frame(minWidth: 0, idealWidth: 180, maxWidth:180, minHeight: 0, idealHeight: 40, maxHeight:40).background(Color.green.opacity(0.3)).cornerRadius(10)
                                 }
                             } else if self.submit {

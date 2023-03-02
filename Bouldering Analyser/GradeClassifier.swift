@@ -14,8 +14,11 @@ class GradeClassifier: ObservableObject {
     private var coordinates: [[Int]] = [[]]
     private var data: [Int] = []
     private var numLargeHolds = 0
+    private var grade: Int = -1
     let dbRef = Database.database().reference()
     let grades: [String] = ["V2","V3","V4","V5","V6"]
+    let conversion_x: [String] = ["18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1"]
+    let conversion_y: [String] = ["A","B","C","D","E","F","G","H","I","J","K"]
     
     private struct Model: Decodable {
         let weights: Weights
@@ -94,10 +97,12 @@ extension GradeClassifier {
         let M = input.count
         let N = input[0].count
         var x: [Double] = []
-        for j in 0..<N {
-            for i in stride(from: M-1, to: -1, by: -1) {
-                x.append(input[i][j])
-                self.data.append(self.coordinates[i][j])
+        if self.data == [] {
+            for j in 0..<N {
+                for i in stride(from: M-1, to: -1, by: -1) {
+                    x.append(input[i][j])
+                    self.data.append(self.coordinates[i][j])
+                }
             }
         }
         let weights_1: [[Double]] =  model.weights.layer_1
@@ -123,6 +128,7 @@ extension GradeClassifier {
                 index = i
             }
         }
+        self.grade = index
         return self.grades[index]
     }
     
@@ -177,21 +183,44 @@ extension GradeClassifier {
         return exps
     }
     
-    func uploadData(realGrade: Int) -> Void {
-        if realGrade > 6 || realGrade < 2 {
-            return
-        }
-        self.dbRef.child("data").childByAutoId().setValue(["Grade": realGrade, "Coordinates": self.data]) { error,_  in
-            if let error = error {
-                let message = error.localizedDescription
-                let _ = print(error)
-            } else {
+    func uploadData(correct: Bool, realGrade: Int) -> Void {
+        if correct {
+            self.dbRef.child("data").childByAutoId().setValue(["Grade": self.grade, "Coordinates": self.data, "Correct": true]) { error,_  in
+                if let error = error {
+                    let _ = print(error)
+                } else {
+                    return
+                }
+            }
+        } else {
+            if realGrade > 6 || realGrade < 2 {
                 return
+            }
+            self.dbRef.child("data").childByAutoId().setValue(["Grade": realGrade-2, "Coordinates": self.data, "Correct": false]) { error,_  in
+                if let error = error {
+                    let _ = print(error)
+                } else {
+                    return
+                }
             }
         }
     }
     
     func getBoxes() -> [UploadView.Box] {
         return self.boundingBoxes
+    }
+    
+    func testMapping() -> [String] {
+        let N = self.coordinates.count
+        let M = self.coordinates[0].count
+        var result: [String] = []
+        for i in 0..<N {
+            for j in 0..<M {
+                if self.coordinates[i][j] == 1 {
+                    result.append(self.conversion_y[j] + self.conversion_x[i])
+                }
+            }
+        }
+        return result
     }
 }

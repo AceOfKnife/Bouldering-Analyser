@@ -60,7 +60,7 @@ struct SavedRoutesView: View {
     func getImages() -> Void {
         for (key, _) in self.boxes {
             let imageRef = storageRef.child("images/\(user.user!.uid)/saved/\(key).jpg")
-            imageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            imageRef.getData(maxSize: Int64.max) { data, error in
                 if let error = error {
                     let _ = print(error)
                 } else {
