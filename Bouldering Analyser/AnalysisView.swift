@@ -291,9 +291,7 @@ struct AnalysisView: View {
         // Casts it back into a `String` and filters out the whitespace
         JSON = String(JSONArray)
         JSON = JSON.filter{ !$0.isWhitespace}
-        
-        let _ = print(JSON)
-        
+                
         // Casts the `String` insto a Swift JSON object
         let jsonData = JSON.data(using: .utf8)!
         
