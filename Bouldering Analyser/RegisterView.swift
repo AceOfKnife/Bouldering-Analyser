@@ -2,8 +2,15 @@ import SwiftUI
 import FirebaseAuth
 import FirebaseDatabase
 
+/**
+ # Register View
+ Constructs the page that allows users to register onto the system. Calls the Firebase database and authentication
+ to store the user's details for later retrieval.
+ */
 struct RegisterView: View {
-    @EnvironmentObject var user: User
+    
+    // State variables storing the email and password credentials of the user
+    // Has optional parameters for biometrics if the user wishes to disclose
     @State private var email = ""
     @State private var password = ""
     @State private var confirmEmail = ""
@@ -15,15 +22,23 @@ struct RegisterView: View {
     @State private var tc = false
     @State private var errorMessage = ""
     @State private var success = false
+    
+    // Reference to the Firebase database
     @State private var ref = Database.database().reference()
 
-    
+    /**
+     Registers a user onto the system with a given email and password.
+     - Parameters:
+        - email: The *email* provided by the user
+        - password: The *password* provided by the user
+     */
     func registerUser(email: String, password: String) -> Void {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 let message = error.localizedDescription
                 errorMessage = message
             } else {
+                // Storing the user's details securely in the database without biometrics
                 self.ref.child("users").child(authResult!.user.uid).setValue(["email": self.email, "biometrics": false]) { error,_  in
                     if let error = error {
                         let message = error.localizedDescription
@@ -36,12 +51,21 @@ struct RegisterView: View {
         }
     }
     
+    /**
+     Overloaded registerUser function that allows for biometrics to be added.
+     - Parameters:
+        - email: The *email* provided by the user
+        - password: The *password* provided by the user
+        - height: The *height* specified by the user
+        - weight: The *weight* specified by the user
+     */
     func registerUser(email: String, password: String, height: Int, weight: Int) -> Void {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 let message = error.localizedDescription
                 errorMessage = message
             } else {
+                // Storing the details securely in the database with the biometrics
                 self.ref.child("users").child(authResult!.user.uid).setValue(["email": self.email, "biometrics": true, "height": height, "weight": weight]) { error,_  in
                     if let error = error {
                         let message = error.localizedDescription
@@ -54,6 +78,15 @@ struct RegisterView: View {
         }
     }
     
+    /**
+     Function that checks if the details provided by the user is sufficient.
+     - Returns: An Int encoding the result of the sign up:
+                0. All necessary details are provided
+                1. One or more required fields are empty
+                2. Confirm email/password fields do not match with the email/password fields
+                3/4. Biometrics are not sensible
+                5. Terms and conditions not checked
+     */
     func validateRegister() -> Int {
         if email == "" || password == "" || confirmEmail == "" || confirmPassword == "" {
             return 1
@@ -75,6 +108,11 @@ struct RegisterView: View {
         return 0
     }
     
+    /**
+     Function that returns the error message based on the encoded result
+     - Parameters error: The integer encoding of the error message
+     - Returns: The string for the error message
+     */
     func getError(error: Int) -> String {
         switch error {
         case 1:
@@ -90,6 +128,7 @@ struct RegisterView: View {
         }
     }
     
+    // Formatter that forces input to be numerical for the biometrics
     let formatter: NumberFormatter = {
             let formatter = NumberFormatter()
             formatter.numberStyle = .none
@@ -158,6 +197,7 @@ struct RegisterView: View {
                         }.frame(minWidth: 0, idealWidth: 400, maxWidth: 400, minHeight: 0, idealHeight: 20, maxHeight:20).padding([.bottom], 20).minimumScaleFactor(0.01)
                         Text(errorMessage).foregroundColor(.red)
                         Button("Sign Up") {
+                            // Checks the error code and displays an error message if necessary
                             let errorCode = validateRegister()
                             if errorCode != 0 {
                                 errorMessage = getError(error: errorCode)

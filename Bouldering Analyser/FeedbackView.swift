@@ -1,5 +1,9 @@
 import SwiftUI
 
+/**
+ # Feedback View
+ A simple page that allows users to send feedback to the system where it is stored in the Firebase database.
+ */
 struct FeedbackView: View {
     @EnvironmentObject var user: User
     @State private var feedback: String = ""
@@ -21,9 +25,11 @@ struct FeedbackView: View {
                     Text("Please enter valid feedback").foregroundColor(.red)
                 }
                 Button("Submit") {
+                    // Invalid feedback if the textbox is empty
                     if feedback == "" {
                         invalidFeedback = true
                     } else {
+                        // Calls the user object function *sendFeedback* to store it in the database
                         user.sendFeedback(feedback: feedback)
                         submitted = true
                     }

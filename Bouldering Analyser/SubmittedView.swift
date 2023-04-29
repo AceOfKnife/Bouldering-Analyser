@@ -1,8 +1,10 @@
 import SwiftUI
 
+/**
+ # Submitted View
+ A simple page that displays once a user successfully submits feedback to the system.
+ */
 struct SubmittedView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var back = false
     var body: some View {
         NavigationView {
             VStack{

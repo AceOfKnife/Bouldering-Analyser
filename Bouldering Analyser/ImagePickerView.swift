@@ -1,6 +1,10 @@
 import UIKit
 import SwiftUI
 
+/**
+ # Image Picker View
+ This *View* allows users to upload their own images on their device by either taking a photo or uploading one from their library.
+ */
 struct ImagePickerView: UIViewControllerRepresentable {
 
     @Binding var selectedImage: UIImage?
@@ -15,7 +19,6 @@ struct ImagePickerView: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-
     }
     
     func makeCoordinator() -> Coordinator {

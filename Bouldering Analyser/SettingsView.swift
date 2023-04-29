@@ -2,7 +2,12 @@ import SwiftUI
 import FirebaseAuth
 import FirebaseDatabase
 
+/**
+ # Settings View
+ A page that allows a user to modify their details. Updates are sent to the Firebase Database and Authentication services.
+ */
 struct SettingsView: View {
+    // Variables to store the user's inputs
     @State private var email = ""
     @State private var confirmEmail = ""
     @State private var password = ""
@@ -15,6 +20,11 @@ struct SettingsView: View {
     @EnvironmentObject var user: User
     let ref = Database.database().reference()
         
+    /**
+     Function that validates an email to make sure it is of a valid email form using regular expressions
+     - Parameter email: The email to validate
+     Source: https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
+     */
     func validateEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
@@ -22,6 +32,10 @@ struct SettingsView: View {
         return emailPred.evaluate(with: email)
     }
     
+    /**
+     Function that returns the encoded error message for an invalid email input
+     - Returns: An Integer encoding of the message
+     */
     func emailError() -> Int {
         if email == "" || confirmEmail == "" {
             return 1
@@ -35,6 +49,10 @@ struct SettingsView: View {
         return 0
     }
     
+    /**
+     Function that returns the encoded error message for an invalid password input
+     - Returns: An Integer encoding of the message
+     */
     func passwordError() -> Int {
         if password == "" || confirmPassword == "" {
             return 1
@@ -45,6 +63,10 @@ struct SettingsView: View {
         return 0
     }
     
+    /**
+     Function that returns the encoded error message for invalid biometrics input
+     - Returns: An Integer encoding of the message
+     */
     func biometricsError() -> Int {
         if biometrics {
             if height < 100 || height > 250 {
@@ -57,6 +79,11 @@ struct SettingsView: View {
         return 0
     }
     
+    /**
+     Function that returns the error message based on the error code
+     - Parameter errorCode: The error code
+     - Returns: The string for the corresponding error message
+     */
     func errorMessage(errorCode: Int) -> String {
         switch errorCode {
         case 1:
@@ -74,6 +101,7 @@ struct SettingsView: View {
         }
     }
     
+    // Formatter to force numerical inputs
     let formatter: NumberFormatter = {
             let formatter = NumberFormatter()
             formatter.numberStyle = .none
@@ -98,6 +126,7 @@ struct SettingsView: View {
                             errorMessage = errorMessage(errorCode: errorCode)
                         } else {
                             success = ""
+                            // Updating the email in the Firebase authentication service and the database
                             user.user?.updateEmail(to: email) { error in
                                 if error != nil {
                                     errorMessage = error!.localizedDescription
@@ -122,6 +151,7 @@ struct SettingsView: View {
                         errorMessage = errorMessage(errorCode: errorCode)
                     } else {
                         success = ""
+                        // Updating the password in the Firebase authentication service
                         user.user?.updatePassword(to: password) { error in
                             if error != nil {
                                 errorMessage = error!.localizedDescription
@@ -169,6 +199,7 @@ struct SettingsView: View {
                         let errorCode = biometricsError()
                         errorMessage = errorMessage(errorCode: errorCode)
                     } else {
+                        // Using the user object to update the biometrics of the user
                         if biometrics {
                             user.changeBiometrics(height: height, weight: weight)
                         } else {

@@ -1,12 +1,19 @@
 import SwiftUI
 import FirebaseAuth
 
+/**
+ # Login View
+ Constructs the page that allows a user to log into their account. Requires the user to have a registered account in the system.
+ Uses the Firebase Authentication system for authentication.
+ */
 struct LoginView: View {
+    // State variables storing the email, password of user
+    // success and fail variables to display error messages correctly and switch to different pages
+    // signUp variable to switch to the page for registering
     @State private var email = ""
     @State private var password = ""
     @State private var success = false
     @State private var fail = false
-    @State private var remember = false
     @State private var signUp = false
 
     var body: some View {
@@ -22,12 +29,11 @@ struct LoginView: View {
                         .frame(minWidth: 0, idealWidth:300, maxWidth: 300, minHeight: 0, idealHeight: 50, maxHeight:50)
                         .disableAutocorrection(true)        .autocapitalization(.none)
                     if fail {
+                        // Error message for the user if the credentials are incorrect
                         Text("Incorrect email or password").foregroundColor(.red)
                     }
-                    Toggle("Remember me", isOn: $remember).onChange(of:remember) { newValue in
-                        // backend
-                    }.frame(minWidth: 0, idealWidth: 200, maxWidth: 200, minHeight: 0, idealHeight: 30, maxHeight:30).padding([.bottom], 20)
                     Button("Sign In") {
+                        // Calling the authentication service in Firebase
                         Auth.auth().signIn(withEmail: email, password: password) { auth, error in
                             if error == nil {
                                 fail = false
@@ -49,6 +55,7 @@ struct LoginView: View {
                         signUp = true
                     }.foregroundColor(.black).frame(minWidth: 0, idealWidth: 180, maxWidth:180, minHeight: 0, idealHeight: 40, maxHeight:40).background(Color.green.opacity(0.3)).cornerRadius(10)
                 }
+                // Page changes based on if the log in was a success or the user wants to sign up
                 NavigationLink("", destination: HomeView(), isActive: $success)
                 NavigationLink("", destination: RegisterView(), isActive: $signUp)
             }

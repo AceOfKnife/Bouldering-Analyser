@@ -1,7 +1,13 @@
 import SwiftUI
 
+/**
+ # Holds View
+ This page shows an interactive list of different types of holds along with a description of their applications and how to utilise them properly.
+ */
 struct HoldsView: View {
     @EnvironmentObject var user: User
+    
+    // Variables that allow dynamic changing of the page
     @State private var jug: Bool = false
     @State private var crimp: Bool = false
     @State private var pinch: Bool = false
