@@ -13,6 +13,8 @@ import FirebaseDatabase
  It also displays the results of the classification.
  */
 struct AnalysisView: View {
+    @State var start = 0.0
+
     // User object storing the user of the current session and references to the database and storage
     @EnvironmentObject var user: User
     let storageRef = Storage.storage().reference()
@@ -33,8 +35,8 @@ struct AnalysisView: View {
     // The variable storing the object that predicts a grade given an input
     @State var gradeClassifier: GradeClassifier = GradeClassifier()
     
-    // The image to be tested on. Normally tested on `copy.jpg` from test@test.com's account
-    // but can be changed to `analysing.jpg` to perform tests on uploaded images
+    // The image to be analysed. Tested on `copy.jpg` from test@test.com's account
+    // but can be changed to `analysing.jpg` to perform analysis on uploaded images
     @State var testingImage = "copy.jpg"
     
     // Variables for dynamic changing of the page
@@ -72,6 +74,12 @@ struct AnalysisView: View {
         self.uploadedRoute = true
         self.saving = false
         self.progressWidth = 0.0
+    }
+    
+    func clearHolds() -> Void {
+        for i in 0..<self.activeBoxes.count {
+            self.activeBoxes[i] = false
+        }
     }
     
     /**
@@ -392,6 +400,9 @@ struct AnalysisView: View {
                                     .frame(alignment: .leading)
                                 Spacer()
                             }
+                            Button("Clear Selection") {
+                                clearHolds()
+                            }.foregroundColor(.black).frame(minWidth: 0, idealWidth: 180, maxWidth:180, minHeight: 0, idealHeight: 40, maxHeight:40).background(Color.red.opacity(0.3)).cornerRadius(10)
                             Button("Confirm Selection") {
                                 // Initialises the grade classifier object with given parameters
                                 let result = self.gradeClassifier.initialiseClassifier(activeBoxes: self.activeBoxes, boundingBoxes: self.boundingBoxes, heightWidth: self.image!.size)
@@ -445,7 +456,6 @@ struct AnalysisView: View {
                             self.startMapping = false
                             self.completeGrading = true
                             self.grade = self.gradeClassifier.predict()
-                            let _ = print(self.gradeClassifier.testMapping())
                         }.foregroundColor(.black).frame(minWidth: 0, idealWidth: 180, maxWidth:180, minHeight: 0, idealHeight: 40, maxHeight:40).background(Color.green.opacity(0.3)).cornerRadius(10)
                     }
                 } else if completeGrading {

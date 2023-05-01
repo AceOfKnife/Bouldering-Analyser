@@ -119,7 +119,7 @@ struct HomeView: View {
                                         self.uploading = true
                                         let metadata = StorageMetadata()
                                         metadata.contentType = "image/jpeg"
-                                        // Calls the image `analysing.jpg` for later grade classification
+                                        // Names the image `analysing.jpg` for later grade classification
                                         let uploadRef = self.storageRef.child("images").child(user.user!.uid).child("analysing.jpg")
                                         let uploadTask = uploadRef.putData(selectedImage!.jpegData(compressionQuality: 1)!, metadata: metadata)
                                         uploadTask.observe(.progress) { snapshot in
